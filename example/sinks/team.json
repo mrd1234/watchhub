@@ -1,0 +1,4 @@
+{
+  "name": "team",
+  "slack": { "channel": "#watchhub", "text": "[wh] {text}" }
+}

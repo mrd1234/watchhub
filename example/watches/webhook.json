@@ -1,0 +1,10 @@
+{
+  "name": "deploy-hook",
+  "scope": "web",
+  "webhook": {
+    "path": "/deploy",
+    "secretHeader": "x-hook-secret",
+    "secretEnv": "DEPLOY_HOOK_SECRET",
+    "text": "DEPLOY {environment} {version} {status}"
+  }
+}

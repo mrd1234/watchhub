@@ -1,0 +1,5 @@
+{
+  "name": "team-feed",
+  "intervalSec": 30,
+  "slack": { "channel": "#watchhub", "match": "^\\[wh\\]" }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "disk-free",
+  "scope": "all",
+  "intervalSec": 60,
+  "command": "df -BG /c | awk 'NR==2 {print $4\" free\"}'",
+  "below": 15,
+  "metric": { "description": "Free space left on the build disk, in gigabytes. When it fills up, builds start failing.", "value": "(\\d+)G free", "unit": "GB", "display": { "type": "gauge", "min": 0, "max": 250, "warn": 30 } }
+}

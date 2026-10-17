@@ -1,0 +1,13 @@
+{
+  "name": "ado-builds",
+  "scope": "web",
+  "intervalSec": 60,
+  "http": {
+    "url": "https://dev.azure.com/your-org/your-project/_apis/build/builds?api-version=7.1&$top=20",
+    "headers": { "Authorization": "Basic ${ADO_PAT_BASE64}" }
+  },
+  "items": "value",
+  "id": "id",
+  "changed": "result",
+  "text": "BUILD {id} {definition.name} {status} {result}"
+}

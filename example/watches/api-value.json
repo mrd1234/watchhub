@@ -1,0 +1,7 @@
+{
+  "name": "staging-version",
+  "scope": "web",
+  "intervalSec": 30,
+  "http": { "url": "https://staging.api.example.com/api/version" },
+  "value": "data.version"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "teams",
+  "http": {
+    "url": "${TEAMS_WEBHOOK_URL}",
+    "body": {
+      "type": "message",
+      "attachments": [{ "contentType": "application/vnd.microsoft.card.adaptive", "content": {
+        "type": "AdaptiveCard", "version": "1.4",
+        "body": [{ "type": "TextBlock", "text": "{text}", "wrap": true }, { "type": "TextBlock", "text": "{probe} | {scope} | {at}", "size": "Small", "isSubtle": true }]
+      } }]
+    }
+  }
+}

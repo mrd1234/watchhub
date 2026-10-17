@@ -1,0 +1,7 @@
+{
+  "name": "slack",
+  "http": {
+    "url": "${SLACK_WEBHOOK_URL}",
+    "body": { "text": "{text}" }
+  }
+}

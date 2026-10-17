@@ -1,0 +1,6 @@
+{
+  "name": "inbox",
+  "intervalSec": 30,
+  "slack": { "channel": ["@dms", "@mentions"] },
+  "sinks": ["toast"]
+}

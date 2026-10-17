@@ -1,0 +1,12 @@
+{
+  "name": "bitbucket-prs",
+  "scope": "web",
+  "intervalSec": 60,
+  "http": {
+    "url": "https://api.bitbucket.org/2.0/repositories/your-workspace/your-repo/pullrequests?state=MERGED",
+    "headers": { "Authorization": "Bearer ${BITBUCKET_TOKEN}" }
+  },
+  "items": "values",
+  "id": "id",
+  "text": "MERGED #{id} {title} by {author.display_name}"
+}

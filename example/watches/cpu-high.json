@@ -1,0 +1,10 @@
+{
+  "name": "api-cpu",
+  "scope": "staging",
+  "intervalSec": 60,
+  "http": { "url": "https://api.datadoghq.com/api/v1/query?from=${EPOCH-300}&to=${EPOCH}&query=avg:system.cpu.user{host:staging-api}", "headers": { "DD-API-KEY": "${DD_API_KEY}", "DD-APPLICATION-KEY": "${DD_APP_KEY}" } },
+  "value": "series[0].pointlist[-1][1]",
+  "above": 85,
+  "for": 3,
+  "metric": { "description": "How busy the API servers' processors are, averaged across them. Held high, requests slow down.", "unit": "%", "display": { "type": "dial", "min": 0, "max": 100, "warn": 70, "label": "API CPU" } }
+}

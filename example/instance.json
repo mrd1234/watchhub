@@ -1,0 +1,159 @@
+{
+  "probes": {
+    "pr-merges": true,
+    "pr-checks": true,
+    "board": false,
+    "aws-auth": false,
+    "vpn": false,
+    "jobs": true,
+    "stamps": false,
+    "custom": true
+  },
+  "intervals": {
+    "pr-merges": 10,
+    "pr-checks": 30,
+    "board": 30,
+    "aws-auth": 30,
+    "vpn": 10,
+    "jobs": 60,
+    "stamps": 30
+  },
+  "scopes": [
+    {
+      "name": "web",
+      "prBase": "^release/",
+      "prTitle": "^WEB-",
+      "jiraProject": "WEB",
+      "ticketKey": "^WEB-",
+      "env": "web|staging"
+    }
+  ],
+  "defaultScope": "all",
+  "notifyWho": "the user",
+  "agentNotes": [
+    "Tell the user about each burst in one line; say nothing when nothing needs doing.",
+    "The release lane subscribes inbox release with --plan release."
+  ],
+  "jira": {
+    "base": "https://your-site.atlassian.net/rest/api/3",
+    "email": "you@example.com",
+    "me": "Your Name",
+    "tokenEnv": "JIRA_API_TOKEN",
+    "projects": [
+      {
+        "key": "WEB",
+        "quietMovesTo": [
+          "In QA",
+          "Closed"
+        ],
+        "quietComment": "works as expected|verified"
+      }
+    ]
+  },
+  "board": {
+    "ignoreActors": [
+      "Your Name"
+    ]
+  },
+  "aws": {
+    "profiles": [
+      {
+        "profile": "my-deploy-profile",
+        "region": "eu-west-2"
+      }
+    ]
+  },
+  "vpn": {
+    "port": 1521,
+    "office": "intranet.example.com",
+    "cloud": "internal.example.net"
+  },
+  "stamps": {
+    "scope": "web",
+    "path": "/api/version",
+    "hosts": {
+      "staging": "staging.api.example.com"
+    }
+  },
+  "engine": {
+    "memoryCapMb": 400,
+    "settleSec": 3
+  },
+  "webhook": {
+    "host": "127.0.0.1",
+    "port": 47831
+  },
+  "github": {
+    "repos": [
+      {
+        "repo": "your-org/your-repo"
+      },
+      {
+        "repo": "your-org/another-repo"
+      }
+    ],
+    "authors": [
+      "@me"
+    ],
+    "ignoreCommentAuthors": [
+      "github-actions[bot]",
+      "sonarcloud[bot]",
+      "dependabot[bot]"
+    ]
+  },
+  "system": {
+    "scope": "host",
+    "disks": {
+      "C:": {
+        "below": 10
+      }
+    },
+    "memory": {
+      "above": 90
+    },
+    "cpu": {
+      "above": 90,
+      "for": 3
+    }
+  },
+  "jenkins": {
+    "base": "https://ci.example.com",
+    "scope": "builds",
+    "jobs": [
+      "api-build",
+      "folder/web-deploy"
+    ]
+  },
+  "sonar": {
+    "scope": "quality",
+    "projects": [
+      "acme_api",
+      {
+        "key": "acme_web",
+        "pullRequests": true
+      }
+    ]
+  },
+  "deploys": {
+    "profile": "deploy",
+    "region": "eu-west-2",
+    "scope": "release",
+    "pipelines": [
+      "api-pipeline"
+    ],
+    "amplify": [
+      {
+        "app": "d1a2b3c4",
+        "branch": "main",
+        "name": "web"
+      }
+    ]
+  },
+  "slack": {
+    "read": [
+      "@dms",
+      "@mentions"
+    ],
+    "ignoreBots": true
+  }
+}

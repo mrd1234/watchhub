@@ -1,0 +1,4 @@
+{
+  "name": "feed-silent",
+  "derive": { "probes": ["custom:team-feed"], "silence": { "for": "2h" } }
+}

@@ -1,0 +1,33 @@
+{
+ "at": "2026-10-16T09:12:05.114Z",
+ "metrics": {
+  "custom:disk-free/disk-free": {
+   "probe": "custom:disk-free",
+   "name": "disk-free",
+   "scope": "all",
+   "value": 31,
+   "at": "2026-10-16T09:12:00.402Z",
+   "intervalSec": 60,
+   "description": "Free space left on the build disk, in gigabytes. When it fills up, builds start failing.",
+   "unit": "GB",
+   "display": { "type": "gauge", "min": 0, "max": 250, "warn": 30, "bad": 15, "lowIsBad": true },
+   "past": false,
+   "inboxes": ["janitor"],
+   "history": "metrics/custom_3a_disk-free.disk-free.jsonl"
+  },
+  "custom:api-cpu/api-cpu": {
+   "probe": "custom:api-cpu",
+   "name": "api-cpu",
+   "scope": "staging",
+   "value": 42.7,
+   "at": "2026-10-16T09:11:58.930Z",
+   "intervalSec": 60,
+   "description": "How busy the API servers' processors are, averaged across them. Held high, requests slow down.",
+   "unit": "%",
+   "display": { "type": "dial", "min": 0, "max": 100, "warn": 70, "label": "API CPU", "bad": 85 },
+   "past": false,
+   "inboxes": ["release-lead", "perf"],
+   "history": "metrics/custom_3a_api-cpu.api-cpu.jsonl"
+  }
+ }
+}

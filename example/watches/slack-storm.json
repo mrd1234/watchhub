@@ -1,0 +1,5 @@
+{
+  "name": "slack-storm",
+  "scope": "all",
+  "derive": { "probes": ["custom:slack-inbox"], "rate": { "window": "5m", "over": 20 } }
+}

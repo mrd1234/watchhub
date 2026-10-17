@@ -1,0 +1,11 @@
+{
+  "name": "gitlab-mrs",
+  "scope": "web",
+  "intervalSec": 30,
+  "http": {
+    "url": "https://gitlab.com/api/v4/projects/12345/merge_requests?state=merged&order_by=updated_at&per_page=20",
+    "headers": { "PRIVATE-TOKEN": "${GITLAB_TOKEN}" }
+  },
+  "id": "iid",
+  "text": "MERGED !{iid} {title}"
+}

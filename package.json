@@ -1,0 +1,43 @@
+{
+  "name": "watchhub",
+  "version": "1.9.0",
+  "description": "One engine per machine watches GitHub, Jira, Slack, Datadog, AWS and anything else; every agent session subscribes once with its own inbox and blocks until something it asked for happens. No polling loops, no turns spent on no-news.",
+  "license": "MIT",
+  "bin": {
+    "watchhub": "bin/watchhub.js"
+  },
+  "main": "lib/api.js",
+  "exports": {
+    ".": "./lib/api.js",
+    "./api": "./lib/api.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test --test-timeout=180000 test/*.test.js",
+    "release": "node scripts/release.js"
+  },
+  "files": [
+    "bin",
+    "lib",
+    "README.md",
+    "docs",
+    "example",
+    "skills"
+  ],
+  "keywords": [
+    "watcher",
+    "events",
+    "agents",
+    "claude",
+    "github",
+    "jira",
+    "slack",
+    "datadog",
+    "daemon"
+  ],
+  "repository": "github:mrd1234/watchhub",
+  "homepage": "https://github.com/mrd1234/watchhub#readme",
+  "author": "Mark"
+}

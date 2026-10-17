@@ -1,0 +1,17 @@
+{
+  "name": "release",
+  "scope": "web",
+  "probes": ["pr-merges", "pr-checks", "jobs", "custom:staging-version"],
+  "filter": "",
+  "notify": true,
+  "on": [
+    { "match": "^MERGED", "do": "deploy round: run the deploy job, queue it with watchhub add-job, wait for JOB" },
+    { "match": "^CHECKS .* all green", "do": "the PR is ready for review" },
+    { "match": "^CHECKS .* FAIL", "do": "read the failing check, fix, push" },
+    { "match": "^REVIEW .* comment by", "quiet": true },
+    { "match": "^JOB .* SUCCEEDED", "do": "verify the deploy, then tell the user" },
+    { "match": "^JOB", "do": "read the job result and decide" },
+    { "match": "value data.version", "do": "staging carries a new build: run the smoke test" }
+  ],
+  "default": "read and decide"
+}

@@ -1,0 +1,8 @@
+{
+  "name": "orders-queue",
+  "scope": "web",
+  "exec": {
+    "command": "while true; do aws sqs receive-message --queue-url \"$ORDERS_QUEUE_URL\" --wait-time-seconds 20 --max-number-of-messages 10 --output json | node -e 'let s=\"\";process.stdin.on(\"data\",d=>s+=d).on(\"end\",()=>{for(const m of (JSON.parse(s||\"{}\").Messages||[]))console.log(m.Body.replace(/\\s+/g,\" \"))})'; done",
+    "match": "FAILED|REJECTED"
+  }
+}
